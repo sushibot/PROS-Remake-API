@@ -13,13 +13,34 @@ const ParkSchema = new Schema({
     state: String,
     zipcode: String,
   },
+  description: {
+    type: String,
+    trim: true,
+  },
+  announcements: {
+    type: String,
+    trim: true,
+  },
   capacity: Number,
   parking_capacity: Number,
-  amenities: [String],
+  amenities: {
+    type: Array,
+    default: [],
+  },
   last_updated_by: String,
   last_update_date: Date,
   hours: {
     type: Array,
     default: [],
   },
+  complex_id: String,
+  district_id: String,
+  contact_id: {
+    type: Array,
+    default: [],
+  },
 });
+
+const Park = mongoose.Schema("Park", ParkSchema);
+
+module.exports = Park;
