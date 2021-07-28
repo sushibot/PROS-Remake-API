@@ -1,9 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const course_service = require("../services/course.service");
+
 const create_course = async (req = express.request, res = express.response) => {
   try {
-    const request = {
+    const course = {
       name: req.body.create.name,
       description: req.body.create.description,
       enrollment_start_date: req.body.create.enrollment_start_date,
@@ -20,12 +21,18 @@ const create_course = async (req = express.request, res = express.response) => {
       status: req.body.create.status,
       category: req.body.create.category,
     };
-    const course_create = await course_service.create_course(request);
+    const course_create = await course_service.create_course(course);
     return res.json(course_create);
   } catch (error) {
-    return error;
+    return res.json({
+      error,
+      message: "There was an error with your request!",
+    });
   }
 };
+
+const get_course = async () => {};
 module.exports = {
   create_course,
+  get_course,
 };

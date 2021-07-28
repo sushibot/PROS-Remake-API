@@ -1,6 +1,3 @@
-// contact id
-// contact
-// district id
 const { Schema } = require("mongoose");
 const mongoose = require("mongoose");
 

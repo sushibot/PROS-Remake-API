@@ -5,6 +5,7 @@ const create_course = async (course) => {
   try {
     const Course = mongoose.model("Course");
     const new_course = await Course.create(course);
+
     return "Course created!";
   } catch (error) {
     return error;

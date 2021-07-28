@@ -10,7 +10,10 @@ const routes = ({ app }) => {
   app.route("/sushi/api").get((req, res) => {
     res.json({ sushi_api_version: "1" });
   });
+
+  app.use("/sushi/api/", api_router);
 };
+
 module.exports = {
   routes,
 };

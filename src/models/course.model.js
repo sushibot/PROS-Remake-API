@@ -1,14 +1,3 @@
-// activity course  name
-// activity course location
-// activity course status
-// activity course description
-// activity course enrollment start date
-// activity course enrollment start time
-// activity course enrollment end date
-// acitivty course enrollment end time
-// activity course category
-// activity course price
-
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
@@ -38,7 +27,7 @@ const CourseSchema = new Schema({
     required: true,
   },
   enrollment_end_date: {
-    type: String,
+    type: Date,
     required: true,
   },
   enrollment_end_time: {
@@ -48,5 +37,12 @@ const CourseSchema = new Schema({
   category: String,
   price: Number,
 });
-const Course = mongoose.model("Course", CourseSchema);
-module.exports = Course;
+
+const register_schema = () => {
+  const Model = mongoose.model("Course", CourseSchema);
+  return Model;
+};
+module.exports = {
+  CourseSchema,
+  register_schema,
+};
