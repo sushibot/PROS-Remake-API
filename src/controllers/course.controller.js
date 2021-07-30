@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const course_service = require("../services/course.service");
 
 const create_course = async (req = express.request, res = express.response) => {
